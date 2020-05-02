@@ -106,3 +106,4 @@ function removeCounterLimit() {
     zikirmatikCounterRemoveButton.classList.toggle("d-none");
   }
 }
+// neden çalışmıyor amk
