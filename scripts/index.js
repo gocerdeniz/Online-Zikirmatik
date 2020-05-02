@@ -3,18 +3,26 @@ let zikirmatikCounterIncrement = document.getElementById("increment");
 let zikirmatikCounterDecrement = document.getElementById("decrement");
 let zikirmatikCounterReset = document.getElementById("reset");
 let zikirmatikCounterSave = document.getElementById("save");
+let zikirmatikCounterRemoveButton = document.getElementById("removeCounterLimit");
 
-document.addEventListener('keydown', incrementCounter);
+document.addEventListener("keydown", checkKeyCode);
 
-
-function incrementCounter(e) {
-  let zikirmatikCounterValue = parseInt(zikirmatikCounter.innerHTML);
-  if ((zikirmatikCounterValue < arr[arrIndex] || arr.length == 0) || e.code == "ArrowRight") {
-  zikirmatikCounterValue = zikirmatikCounterValue + 1;
-  zikirmatikCounter.innerHTML = zikirmatikCounterValue;
-} else {
-  alert("Limite ulaştınız.")
+function checkKeyCode(e) {
+  if (e.code == "ArrowRight" || e.code == "ArrowUp") {
+    incrementCounter();
+  } else if (e.code == "ArrowLeft" || e.code == "ArrowDown") {
+    decrementCounter();
+  }
 }
+
+function incrementCounter() {
+  let zikirmatikCounterValue = parseInt(zikirmatikCounter.innerHTML);
+  if (zikirmatikCounterValue < arr[arrIndex] || arr.length == 0) {
+    zikirmatikCounterValue = zikirmatikCounterValue + 1;
+    zikirmatikCounter.innerHTML = zikirmatikCounterValue;
+  } else {
+    alert("Limite ulaştınız.");
+  }
 }
 
 function decrementCounter() {
@@ -81,17 +89,20 @@ function saveCounter() {
 
 let arr = [];
 let arrIndex = arr.length;
-function limitCounter(){
+function limitCounter() {
   limit = parseInt(prompt("Lütfen limit giriniz..."));
   let zikirmatikCounterValue = parseInt(zikirmatikCounter.innerHTML);
   console.log(limit);
   arr.push(limit);
+  zikirmatikCounterRemoveButton.classList.toggle("d-none");
 }
 
 function removeCounterLimit() {
-  if(arr.length == 0) {
-    alert("Limit bulunmamaktadır...")
+  if (arr.length == 0) {
+    alert("Limit bulunmamaktadır...");
   } else {
-  arr = [];
-  alert("Limit başarıyla kaldırıldı...")}
+    arr = [];
+    alert("Limit başarıyla kaldırıldı...");
+    zikirmatikCounterRemoveButton.classList.toggle("d-none");
+  }
 }
