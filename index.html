@@ -8,11 +8,11 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zikirmassccsatik...</title>
+    <title>Online Zikirmatik</title>
   </head>
   <body>
     <div class="alignMiddle">
@@ -46,12 +46,53 @@
         <button
           type="button"
           id="reset"
-          class="btn btn-info"
+          class="btn btn-primary"
           onclick="resetCounter();supriseMotherfucker.play()"
         >
           Sıfırla
         </button>
+        <button
+        type="button"
+        id="save"
+        class="btn btn-warning"
+        onclick="saveCounter()"
+      >
+        Kaydet
+      </button>
+      <button
+      type="button"
+      id="save"
+      class="btn btn-info"
+      onclick="limitCounter()"
+    >
+      Limit Ekle
+    </button>
+    <button
+    type="button"
+    id="save"
+    class="btn btn-secondary"
+    onclick="removeCounterLimit()"
+  >
+    Limit Kaldır
+  </button>
     </div>
+    </div>
+    <div id="tablo">
+    <table class="table table-sm table-bordered table-hover table-striped table-dark">
+      <thead>
+        <tr class="table-active">
+          <th scope="col">Zikir sayısı</th>
+          <th scope="col">Tarih</th>
+          <th scope="col">Saat</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
     <script src="scripts/index.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
